@@ -1,0 +1,33 @@
+.dashboard{
+
+    overflow: hidden;
+    background-color:black ;
+    
+}
+.dashboard a{
+    color: aliceblue;
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+}
+
+.dashboard a.active{
+   /** background-color: green;*/
+   background-image: linear-gradient(to right, #b30086 , #ff0066);
+    color: white;
+}
+
+.dashboard a:hover{
+
+    background-color: whitesmoke;
+    color: black;
+}
+.dashboard a.login{
+  float: right;
+}
+.dashboard a.register{
+    float: right;
+}

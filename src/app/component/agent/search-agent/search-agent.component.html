@@ -1,0 +1,22 @@
+<p>search-agent works!</p>
+<div>
+    <form  #myform="ngForm"  (ngSubmit)="getAgentById(myform.value)">
+  
+      <label for="id">AGENT ID</label>
+      <input type="text" id="id" #idcontrol="ngModel" name="agentId" placeholder="Enter agent ID"  required ngModel>
+      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Agent Id is Mandatory</span><br>
+      
+      <button type="submit"   [disabled]="myform.invalid" >Get Agent</button>
+
+    
+</form>  
+
+<div     (ngSubmit)="getAllAgents()">
+  
+    <button type="submit" >Get All Agents</button>
+
+  
+</div>  
+
+
+</div>

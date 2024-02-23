@@ -1,0 +1,23 @@
+<p>search-car works!</p>
+
+<div>
+    <form  #myform="ngForm"  (ngSubmit)="getCarById(myform.value)">
+  
+      <label for="id">CAR ID</label>
+      <input type="text" id="id" #idcontrol="ngModel" name="customerId" placeholder="enter car ID"  required ngModel>
+      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Car Id is Mandatory</span><br>
+      
+      <button type="submit"   [disabled]="myform.invalid" >Get Car</button>
+
+    
+</form>  
+
+<div     (ngSubmit)="getAllCars()">
+  
+    <button type="submit" >Get All Cars</button>
+
+  
+</div>  
+
+
+</div>

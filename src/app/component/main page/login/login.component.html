@@ -1,0 +1,35 @@
+
+<br>
+<br>
+<img src="../assets/driving car.jpg" alt="animated image"> <br>
+
+<div class="container">
+
+  
+  
+    <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)"> -->
+    <form  #myform="ngForm">
+      <label for="username">USERNAME</label>
+      <input type="text" id="username" #usernamecontrol="ngModel" name="userName" placeholder="enter your user name"  required ngModel><br>
+      <span  style="color: red;"  *ngIf="usernamecontrol.touched && usernamecontrol.invalid">User Name is Mandatory</span><br>
+
+     
+      
+    <label for="password">PASSWORD</label>
+    <input type="password" id="password" #passwordcontrol="ngModel" name="password" placeholder="enter your password"  required ngModel><br>
+    <span  style="color: red;"  *ngIf="passwordcontrol.touched && passwordcontrol.invalid">Password is Mandatory</span><br>
+    
+    <button type="submit"   [disabled]="myform.invalid" >Login</button>
+
+    </form>
+ 
+</div>
+
+<a routerLink="/customerdashboard">customerdashboard</a>
+
+<a routerLink="/admindashboard">admindashboard</a>
+
+<a routerLink="/agentdashboard">agentdashboard</a> <br>
+
+<router-outlet></router-outlet>
+

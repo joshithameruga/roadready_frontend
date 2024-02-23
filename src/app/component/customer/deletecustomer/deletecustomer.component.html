@@ -1,0 +1,12 @@
+<div>
+    <form  #myform="ngForm"  (ngSubmit)="deleteCustomerById(myform.value)">
+  
+      <label for="id">CUSTOMER ID</label>
+      <input type="text" id="id" #idcontrol="ngModel" name="customerId" placeholder="enter customer ID"  required ngModel>
+      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Customer Id is Mandatory</span><br>
+      
+      <button type="submit"   [disabled]="myform.invalid" >Delete</button>
+
+    
+</form>  
+</div>

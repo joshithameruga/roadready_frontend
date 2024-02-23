@@ -1,0 +1,28 @@
+<p>customer-feedback works!</p>
+
+<div class="container">
+    <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomerFeedback(myform.value)">
+  
+      <label for="fid">FEEDBACK ID</label>
+      <input type="text" id="fid" #fidcontrol="ngModel" name="feedbackId" placeholder="enter your feedback id"  required ngModel><br>
+      <span  style="color: red;"  *ngIf="fidcontrol.touched && fidcontrol.invalid">Feedback id is Mandatory</span><br>
+  
+      <label for="cid">CUSTOMER ID</label>
+      <input type="text" id="cid" #cidcontrol="ngModel" name="customerId" placeholder="enter your customer id" required ngModel><br>
+      <span  style="color: red;"  *ngIf="cidcontrol.touched && cidcontrol.invalid">customer id is Mandatory</span><br>
+     
+      <label for="cname">CUSTOMER NAME</label>
+      <input type="text" id="cname" #cnamecontrol="ngModel" name="customerName" placeholder="enter your name" required ngModel><br>
+      <span  style="color: red;"  *ngIf="cnamecontrol.touched && cnamecontrol.invalid">Name is Mandatory</span><br>
+  
+      <label for="review">CUSTOMER REVIEW</label>
+      <input type="text" id="review" #reviewcontrol="ngModel" name="customerReview" placeholder="enter your review" required ngModel><br>
+      <span  style="color: red;"  *ngIf="reviewcontrol.touched && reviewcontrol.invalid">Review is Mandatory</span><br>
+  
+      <label for="rate"> RATING</label>
+      <input type="text" id="rate" #ratecontrol="ngModel"  name="rating" placeholder="enter rating" required ngModel><br>
+      <span  style="color: red;"  *ngIf="ratecontrol.touched && ratecontrol.invalid">Rating is Mandatory out of 5</span><br>
+  
+      <button type="submit"   [disabled]="myform.invalid" >Submit</button>
+    </form>
+  </div>

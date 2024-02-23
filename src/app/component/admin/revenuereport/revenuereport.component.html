@@ -1,0 +1,23 @@
+<p>revenuereport works!</p>
+
+<div>
+    <form  #myform="ngForm"  (ngSubmit)="getReportById(myform.value)">
+  
+      <label for="id">CUSTOMER ID</label>
+      <input type="text" id="id" #idcontrol="ngModel" name="customerId" placeholder="Enter customer ID"  required ngModel>
+      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Customer Id is Mandatory</span><br>
+      
+      <button type="submit"   [disabled]="myform.invalid" >Get Report</button>
+
+    
+</form>  
+
+<div     (ngSubmit)="getAllRevenueReport()">
+  
+    <button type="submit" >Get All Reports</button>
+
+  
+</div>  
+
+
+</div>

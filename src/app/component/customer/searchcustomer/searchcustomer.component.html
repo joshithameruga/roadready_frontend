@@ -1,0 +1,23 @@
+<p>searchcustomer works!</p>
+
+<div>
+    <form  #myform="ngForm"  (ngSubmit)="getCustomerById(myform.value)">
+  
+      <label for="id">CUSTOMER ID</label>
+      <input type="text" id="id" #idcontrol="ngModel" name="customerId" placeholder="enter customer ID"  required ngModel>
+      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Customer Id is Mandatory</span><br>
+      
+      <button type="submit"   [disabled]="myform.invalid" >Get Customer</button>
+
+    
+</form>  
+
+<div     (ngSubmit)="getAllCustomers()">
+  
+    <button type="submit" >Get All Customers</button>
+
+  
+</div>  
+
+
+</div>
