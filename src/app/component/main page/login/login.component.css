@@ -26,7 +26,7 @@
   
   button[type="submit"] {
     width: 50%; /* Adjust button width as needed */
-    background-image: linear-gradient(to right, #b30086 , #ff0066);
+    background-image: linear-gradient(to right,  #08b3e5, #2fd7a89d);
     color: white;
     padding: 12px 20px;
     margin: 20px 0; /* Add margin to the button */
@@ -34,15 +34,14 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  
-  button:disabled {
-    background-color: #f2f2f2;
-  }
-    
 
-    button:disabled{
-      background-color: #f2f2f2;
-    }
+
+  button[type="submit"]:disabled {
+    background-color: gray; 
+    cursor: not-allowed; 
+  }
+
+   
     
     @keyframes slidein {
       from {
@@ -59,4 +58,23 @@
       
     animation: slidein 5s linear infinite;
 }
-  
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+p{
+
+  animation: blink 1s infinite;
+  color:#08b3e5;
+
+}
+

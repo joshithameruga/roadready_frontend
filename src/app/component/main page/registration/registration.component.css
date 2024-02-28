@@ -26,7 +26,7 @@
   
   button[type="submit"] {
     width: 50%; /* Adjust button width as needed */
-    background-image: linear-gradient(to right, #b30086 , #ff0066);
+    background-image: linear-gradient(to right,  #08b3e5, #2fd7a89d);
     color: white;
     padding: 12px 20px;
     margin: 20px 0; /* Add margin to the button */
@@ -35,10 +35,10 @@
     cursor: pointer;
   }
   
-  button:disabled {
-    background-color: #f2f2f2;
+  button[type="submit"]:disabled {
+    background-color: gray; 
+    cursor: not-allowed; 
   }
-    
   
   
   

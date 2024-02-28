@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Admin } from 'src/app/model/admin';
-import { Service } from 'src/app/service/service';
 
 @Component({
   selector: 'app-addadmin',
@@ -9,11 +7,4 @@ import { Service } from 'src/app/service/service';
 })
 export class AddadminComponent {
 
-  constructor(private adminService: Service) { }
-
-  addAdmin(data: Admin) {
-    console.log(data);
-    this.adminService.insertAdmin(data);
-
-  }
 }

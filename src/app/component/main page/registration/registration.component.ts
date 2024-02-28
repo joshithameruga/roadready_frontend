@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Customer } from 'src/app/model/customer';
-import { Service } from 'src/app/service/service';
+import { Service } from '../../../service/service';
+import { Customer } from '../../../model/customer';
+
 
 @Component({
   selector: 'app-registration',
@@ -13,7 +14,7 @@ export class RegistrationComponent {
 
   insertCustomer(data:Customer){
         
-    this.customerService.insert(data)
+    this.customerService.insertCustomer(data)
     .subscribe((customer) => {console.log("added customer is:"+customer);})
   }
    

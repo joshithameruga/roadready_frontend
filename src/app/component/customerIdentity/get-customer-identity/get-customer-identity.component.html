@@ -1,1 +1,23 @@
-<p>get-customer-identity works!</p>
+
+
+<br>
+<br>
+<div class="container">
+
+  
+  
+  <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)"> -->
+  <form  #myform="ngForm">
+    <label for="id">CUSTOMERID</label>
+    <input type="text" id="id" #formcontrol="ngModel" name="customerid" placeholder="enter customer id"  required ngModel><br>
+    <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Customer id is Mandatory</span><br>
+
+   
+  <button type="submit"   [disabled]="myform.invalid" >Submit</button>
+
+  </form>
+</div> 
+
+
+
+

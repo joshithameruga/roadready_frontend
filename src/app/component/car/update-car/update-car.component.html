@@ -1,1 +1,36 @@
 <p>update-car works!</p>
+
+<div class="container">
+    <form  #myform="ngForm"  method="post" (ngSubmit)="updateCar(myform.value)">
+  
+      <label for="cmake">MAKE</label>
+      <input type="text" id="cmake" #cmakecontrol="ngModel" name="make" placeholder="Enter car make"  required ngModel><br>
+      <span  style="color: red;"  *ngIf="cmakecontrol.touched && cmakecontrol.invalid">Car make is Mandatory</span><br>
+  
+      <label for="cmodel">MODEL</label>
+      <input type="text" id="cmodel" #cmodelcontrol="ngModel" name="model" placeholder="Enter car model" required ngModel><br>
+      <span  style="color: red;"  *ngIf="cmodelcontrol.touched && cmodelcontrol.invalid">Car model is Mandatory</span><br>
+     
+      <label for="loc">LOCATION</label>
+      <input type="email" id="loc" #loccontrol="ngModel" name="location" placeholder="Enter location" required ngModel><br>
+      <span  style="color: red;"  *ngIf="loccontrol.touched && loccontrol.invalid">Location is Mandatory</span><br>
+  
+      <label for="drate">DAILY RATE</label>
+      <input type="text" id="drate" #dratecontrol="ngModel" name="dailyrate" placeholder="Enter daily rate" required ngModel><br>
+      <span  style="color: red;"  *ngIf="dratecontrol.touched && dratecontrol.invalid">Daily rate is Mandatory</span><br>
+  
+      <label for="cstatus"> CAR STATUS</label>
+      <input type="text" id="cstatus" #cstatuscontrol="ngModel"  name="carstatus" placeholder="Enter car status" required ngModel><br>
+      <span  style="color: red;"  *ngIf="cstatuscontrol.touched && cstatuscontrol.invalid">Car status is Mandatory</span><br>
+  
+      <label for="specification">SPECIFICATION</label>
+      <input type="text" id="specification" #specificationcontrol="ngModel" name="specification" placeholder="Enter specifications"required  ngModel><br>
+      <span  style="color: red;"  *ngIf="specificationcontrol.touched && specificationcontrol.invalid">Specifications is Mandatory</span><br>
+  
+      <label for="pcapacity">PASSENGER CAPACITY</label>
+      <input type="text" id="pcapacity" #pcapacitycontrol="ngModel" name="pcapacity" placeholder="Enter passenger capacity"required ngModel><br>
+      <span  style="color: red;"  *ngIf="pcapacitycontrol.touched && pcapacitycontrol.invalid">Passenger capacity is Mandatory </span><br>
+  
+      <button type="submit"   [disabled]="myform.invalid" >Submit</button>
+    </form>
+  </div>

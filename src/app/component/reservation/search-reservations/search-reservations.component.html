@@ -1,1 +1,32 @@
-<p>search-reservations works!</p>
+
+  <div class="search">
+  <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <form class="d-flex"  #searchInput="ngForm" (ngSubmit)="getReservationOfCustomer(searchInput.value)">
+          <input class="form-control me-2" type="search" name="data"  ngModel  placeholder="Search By Customer Id" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </div>
+  
+  
+  
+  <div class="container  col-md-10">
+  <table  class="table table-info">
+  
+  <thead>
+  <tr><th>ID</th><th>RESERVATION ID</th><th>PICKUP</th><th>DROPOFF</th><th>STATUS</th><th>RESERVATION DATE</th><th>CUSTOMER</th><th>CAR<th>PAYMENT</th></tr>
+  </thead>
+  
+  <tr *ngFor="let reservation of  reservationSearchList">
+   <td>{{reservation.resevationId}}</td><td>{{reservation.dateOfPickup}}</td>
+   <td>{{reservation.dateOfDropoff}}</td> <td>{{reservation.reservationStatus}}</td>
+   <td>{{reservation.dateOfReservation}}</td><td>{{reservation.customer}}</td>
+   <td>{{reservation.car}}</td><td>{{reservation.payment}}</td>
+  </tr>
+  
+  </table>
+  </div>
+  
+  <router-outlet> </router-outlet>

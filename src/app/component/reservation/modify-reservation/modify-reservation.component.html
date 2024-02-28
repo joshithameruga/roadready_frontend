@@ -1,1 +1,22 @@
-<p>modify-reservation works!</p>
+
+<br>
+<br>
+<div class="container">
+    <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)"> -->
+        <form  #myform="ngForm" >
+      <label for="id">RESERVATION ID</label>
+      <input type="text" id="id" #formcontrol="ngModel" name="reservation id" placeholder="enter reservationid"  required ngModel><br>
+      <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Reservation id is Mandatory</span><br>
+  
+      <label for="id">DATE OF PICKUP</label>
+      <input type="date" id="id" #formcontrol="ngModel" name="pickup" placeholder="yyyy-mm-dd" required ngModel><br>
+      <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Date of pickup is Mandatory</span><br>
+     
+      <label for="id">DATE OF DROPOFF</label>
+      <input type="date" id="id" #formcontrol="ngModel" name="drop off" placeholder="yyyy-mm-dd" required ngModel><br>
+      <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Date o dropoff is Mandatory</span><br>
+  
+     
+      <button type="submit"   [disabled]="myform.invalid" >Modify</button>
+    </form>
+  </div>

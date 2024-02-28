@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Service } from 'src/app/service/service';
+import { Service } from '../../../service/service';
 
 @Component({
   selector: 'app-deletecustomer',
@@ -14,7 +14,7 @@ export class DeletecustomerComponent {
 
   deleteCustomerById(id:number){
         
-     this.customerService.delete(id).subscribe(() => { console.log('Customer deleted successfully')});
+     this.customerService.deleteCustomer(id).subscribe(() => { console.log('Customer deleted successfully')});
     
   }
   }

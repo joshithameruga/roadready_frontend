@@ -1,39 +1,50 @@
-<p>admin-dashboard works!</p>
+<body>
+
+    <div class="sidebar">
+      <a routerLink="/searchallcustomers">Customers</a>
+      <a routerLink="/searchallcars">Cars</a>
+      <a routerLink="/viewallpayments">Payments</a>
+      <a routerLink="/viewallreservations">Reservations</a>
+      <a routerLink="/searchallagents">Agents</a>
+      <a routerLink="/viewallfeedbacks">Feedbacks</a>
+      <a routerLink="/revenue">Revenue</a>
+    </div>
+</body>
 
 
-<a routerLink="/deletecustomer">deletecustomer</a><br>
-<a routerLink="/addcustomer">addcustomer</a><br>
-<a routerLink="/updatecustomer">updatecustomer</a><br>
-<a routerLink="/searchcustomer">searchcustomer</a><br>
-<a routerLink="/addcar">addcar</a><br>
-<a routerLink="/updatecar">updatecar</a><br>
-<a routerLink="/deletecar">deletecar</a><br>
-<a routerLink="/searchallcars">searchallcars</a><br>
-<a routerLink="/searchcar">searchcar</a><br>
-<a routerLink="/discountoncarbymake">discountoncarbymake</a><br>
-<a routerLink="/updatecarprice">updatecarprice</a><br>
-<a routerLink="/addagent">addagent</a><br>
-<a routerLink="/deleteagent">deleteagent</a><br>
-<a routerLink="/searchagent">search agent</a><br>
-<a routerLink="/searchallagents">searchallagents</a><br>
-<a routerLink="/updateagent">updateagent</a><br>
-<a routerLink="/viewallreservations">View All Reservations</a><br>
-<a routerLink="/reservationsofcustomer">Reservations of Customer</a><br>
-<a routerLink="/viewallpayments">View All Payments</a><br>
-<a routerLink="/payemntsofcustomer">Payments of Customer</a><br>
-<a routerLink="/adminfeedback">Admin Feedback</a><br>
-<a routerLink="/viewallfeedbacks">View All Feedbacks</a><br>
-<a routerLink="/revenuebetweendates">Revenue Between Dates</a><br>
-<a routerLink="/revenuebycustomer">Revenue by Customer</a><br>
-<a routerLink="/totalrevenue">Total Revenue</a><br>
-<a routerLink="/getavailablecars">Get Available Cars</a><br>
-<a routerLink="/carbylocation">Cars by Location</a><br>
-<a routerLink="/carbypassengercapacity">Cars by Passenger Capacity</a><br>
-<a routerLink="/carbymake">Cars by Make</a><br>
-<a routerLink="/carbyspecification">Cars by Specification</a><br>
-<a routerLink="/searchcarsbylocationmakemodel">Search Cars by Location, Make, Model</a><br>
+<div class="card-container">
+  <div class="card">
+    <img src="image1.jpg" alt="Image 1">
+    <div class="container">
+      <h4><b>Total Customers</b></h4>
+      <p>number</p>
+    </div>
+  </div>
+  
+  <div class="card">
+    <img src="image2.jpg" alt="Image 2">
+    <div class="container">
+      <h4><b>Total Cars</b></h4>
+      <p>number</p>
+    </div>
+  </div>
+  
+  <div class="card wide">
+    <img src="image3.jpg" alt="Image 3">
+    <div class="container">
+      <h4><b>Total Revenue</b></h4>
+      <p>Description</p>
+    </div>
+  </div>
+</div>
 
 
+
+<div class ="logout">
+ 
+  <button (click)="logout()">LOGOUT</button>
+
+</div>
 
 
 

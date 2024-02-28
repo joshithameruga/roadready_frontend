@@ -1,23 +1,37 @@
-<p>searchcustomer works!</p>
 
-<div>
-    <form  #myform="ngForm"  (ngSubmit)="getCustomerById(myform.value)">
-  
-      <label for="id">CUSTOMER ID</label>
-      <input type="text" id="id" #idcontrol="ngModel" name="customerId" placeholder="enter customer ID"  required ngModel>
-      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Customer Id is Mandatory</span><br>
-      
-      <button type="submit"   [disabled]="myform.invalid" >Get Customer</button>
-
-    
-</form>  
-
-<div     (ngSubmit)="getAllCustomers()">
-  
-    <button type="submit" >Get All Customers</button>
-
-  
-</div>  
-
-
+<div class="add">
+<button type="button" class="btn btn-success"  routerLink="/addcustomer">ADD CUSTOMER</button>
 </div>
+
+<div class="search">
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <form class="d-flex"  #searchInput="ngForm" (ngSubmit)="findCustomer(searchInput)">
+        <input class="form-control me-2" type="search" name="data"  ngModel  placeholder="Search By Id" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</div>
+
+
+
+<div class="container  col-md-9">
+<table  class="table table-info">
+
+<thead>
+<tr><th>ID</th><th>FIRST NAME</th><th>LAST NAME</th><th>USERNAME</th><th>EMAIL ADDRESS</th><th>PHONE NUMBER</th><th> UPDATE</th><th> DELETE</th></tr>
+</thead>
+
+<tr *ngFor="let customer of  customerSearchList">
+ <td>{{customer.customerId}}</td><td>{{customer.firstName}}</td>
+ <td>{{customer.lastName}}</td> <td>{{customer.username}}</td>
+ <td>{{customer.emailAddress}}</td><td>{{customer.phoneNumber}}</td>
+ <td><button type="button" class="btn btn-success" routerLink="/updatecustomer" >UPDATE</button></td> 
+ <td><button type="button" class="btn btn-danger"   (click)="deleteCustomerById(customer.customerId)">Delete</button></td> 
+</tr>
+
+</table>
+</div>
+
+<router-outlet> </router-outlet>

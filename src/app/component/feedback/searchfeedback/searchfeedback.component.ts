@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Feedback } from 'src/app/model/feedback';
-import { Service } from 'src/app/service/service';
+import { Router } from '@angular/router';
+import { Feedback } from '../../../model/feedback';
+import { Service } from '../../../service/service';
 
 @Component({
   selector: 'app-searchfeedback',
@@ -10,11 +11,29 @@ import { Service } from 'src/app/service/service';
 export class SearchfeedbackComponent {
   feedbackSearchList:Feedback[] =[];
 
-  constructor(private feedbackService:Service){}
+  constructor(private feedbackService:Service,private router:Router){}
+  data:string = '';
+
+  ngOnInit(){
+
+    this. getAllFeedbacks();
+  }
+
+  
+ 
+    find(searchData:any){
+
+        this.router.navigate(['/search/'+searchData.form.value.data])
+
+        console.log(searchData.form.value.data);
+        
+
+    }
   getAllFeedbacks(){
     
     this.feedbackService.viewAllFeedbacks().subscribe( (fb)=> {this.feedbackSearchList = fb;console.log("list" + fb);
     
   });
   }
+
 }

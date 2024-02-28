@@ -1,1 +1,19 @@
-<p>searchfeedback works!</p>
+<br>
+<div class="container  col-md-9">
+<table  class="table table-info">
+
+<thead>
+<tr><th>FEEDBACK ID</th><th>CUSTOMER ID</th><th> NAME</th><th>REVIEW</th><th>RATING</th><th> REPLY</th></tr>
+</thead>
+
+<tr *ngFor="let feedback of  feedbackSearchList">
+ <td>{{feedback.feedbackId}}</td><td>{{feedback.customerId}}</td>
+ <td>{{feedback.customerName}}</td> <td>{{feedback.customerReview}}</td>
+ <td>{{feedback.rating}}</td>
+
+ <td><button type="button" class="btn btn-danger"   routerLink="/adminfeedback">Reply</button></td> 
+</tr>
+
+</table>
+</div>
+<router-outlet> </router-outlet>

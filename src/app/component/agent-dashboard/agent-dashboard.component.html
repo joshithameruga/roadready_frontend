@@ -1,13 +1,47 @@
-<p>agent-dashboard works!</p>
+<body>
 
-<a routerLink="/checkin">checkin</a>
-
-<a routerLink="/checkout">checkout</a>
-
-<a routerLink="/updatecaravailability">updatecaravailability</a>
-
-<a routerLink="/verifyidentity">verifyidentity</a>
-
-<a routerLink="/carmaintenancereport">car Maintenance report</a>
-
-<router-outlet></router-outlet>
+<div class="card-container" >
+    
+    <div class="row">
+      <div class="card" routerLink="/updatecaravailability">
+        <img src="image1.jpg" alt="Image 1">
+        <div class="container">
+          <h4>UPDATE CAR AVAILABILITY</h4>
+        </div>
+      </div>
+      
+      <div class="card" routerLink="/verifyidentity">
+        <img src="image2.jpg" alt="Image 2">
+        <div class="container">
+            <h4>VERIFY CUSTOMER IDENTITY</h4>
+        </div>
+      </div>
+      
+      <div class="card" routerLink="/carmaintenancereport">
+        <img src="image3.jpg" alt="Image 3">
+        <div class="container">
+          <h4>GENERATE CAR MAINTENANCE REPORT</h4>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="card" routerLink="/checkin">
+        <img src="image4.jpg" alt="Image 4">
+        <div class="container">
+          <h4>CHECK IN</h4>
+        </div>
+      </div>
+      
+      <div class="card" routerLink="/checkout">
+        <img src="image5.jpg" alt="Image 5">
+        <div class="container">
+          <h4>CHECK OUT</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="logout" (click)="logout()">
+    <i class="fa fa-sign-out"></i> Logout
+  </a>
+</body>

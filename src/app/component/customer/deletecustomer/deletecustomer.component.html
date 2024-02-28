@@ -1,12 +1,18 @@
-<div>
-    <form  #myform="ngForm"  (ngSubmit)="deleteCustomerById(myform.value)">
-  
-      <label for="id">CUSTOMER ID</label>
-      <input type="text" id="id" #idcontrol="ngModel" name="customerId" placeholder="enter customer ID"  required ngModel>
-      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Customer Id is Mandatory</span><br>
-      
-      <button type="submit"   [disabled]="myform.invalid" >Delete</button>
+<br>
+<br>
+<div class="container">
 
-    
-</form>  
+  
+  
+  <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)"> -->
+  <form  #myform="ngForm" (ngSubmit)="deleteCustomerById(myform.value)">
+    <label for="id">CUSTOMERID</label>
+    <input type="text" id="id" #formcontrol="ngModel" name="customerid" placeholder="enter customer id"  required ngModel><br>
+    <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Customer id is Mandatory</span><br>
+
+   
+  <button type="submit"   [disabled]="myform.invalid" >Delete</button>
+
+  </form>
+
 </div>

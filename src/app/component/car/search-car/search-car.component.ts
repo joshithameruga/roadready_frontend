@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Car } from 'src/app/model/car';
-import { Service } from 'src/app/service/service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Service } from '../../../service/service';
+import { Car } from '../../../model/car';
 
 @Component({
   selector: 'app-search-car',
@@ -9,15 +10,33 @@ import { Service } from 'src/app/service/service';
 })
 export class SearchCarComponent {
 
+
+
   carSearchList: Car[] = [];
 
-  constructor(private carService: Service) { }
+  constructor(private carService: Service ,private router:Router){}
+  data:string = '';
+   
+
+    ngOnInit(){
+      this.getAllCars();
+    }
+  
+ 
+    findCar(searchData:any){
+
+        this.router.navigate(['/search/'+searchData.form.value.data])
+
+        console.log(searchData.form.value.data);
+        
+
+    }
 
   getCarById(carId: number) {
 
     console.log(carId)
 
-    this.carService.getById(carId).subscribe((c) => { console.log("car obtained" + c) });
+    this.carService.getCarById(carId).subscribe((c) => { console.log("car obtained" + c) });
   }
 
   getAllCars() {
@@ -26,6 +45,18 @@ export class SearchCarComponent {
       this.carSearchList = cars; console.log("list" + cars);
 
     });
+
+
   }
+  deleteCarById(id:number){
+        
+    this.carService.deleteCarById(id).subscribe(() => { console.log('Car deleted successfully')});
+   
+ }
+  getCarImage(car:any){
+
+  }
+
+
 
 }

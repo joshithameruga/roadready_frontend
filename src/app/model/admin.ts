@@ -1,8 +1,6 @@
-export interface Admin {
+export interface Admin{
 
-    adminId: number;
-    username: string;
-    password: string;
-
-
+    adminId:number;
+    username:string;
+    password:string;
 }

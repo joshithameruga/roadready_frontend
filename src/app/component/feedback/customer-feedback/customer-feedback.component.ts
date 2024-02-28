@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Feedback } from 'src/app/model/feedback';
-import { Service } from 'src/app/service/service';
+import { Service } from '../../../service/service';
+import { Feedback } from '../../../model/feedback';
+
 
 @Component({
   selector: 'app-customer-feedback',

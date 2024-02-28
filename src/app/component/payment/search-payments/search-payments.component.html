@@ -1,1 +1,32 @@
-<p>search-payments works!</p>
+<div class="search">
+<nav class="navbar navbar-light">
+    <div class="container-fluid">
+      <form class="d-flex"  #searchInput="ngForm" (ngSubmit)="findPayments(searchInput)">
+        <input class="form-control me-2" type="search" name="data"  ngModel  placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</div>
+
+
+<div class="container  col-md-9">
+<table  class="table table-info">
+
+<thead>
+<tr><th>PAYMENT ID</th><th>AMOUNT PAID </th><th> DATE OF PAYMENT</th><th>MODE OF PAYMENT</th><th>CUSTOMER</th></tr>
+</thead>
+
+<tr *ngFor="let payment of  allPayments">
+ <td>{{payment.paymentId}}</td><td>{{payment.amountPaid}}</td>
+ <td>{{payment.dateOfPayment}}</td> <td>{{payment.modeOfPayment}}</td>
+ <td>{{payment.customer}}</td>
+
+
+</tr>
+
+</table>
+</div>
+
+<router-outlet></router-outlet>
+

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { Customer } from 'src/app/model/customer';
-import { Service } from 'src/app/service/service';
+import { Service } from '../../../service/service';
+import { Customer } from '../../../model/customer';
 
 @Component({
   selector: 'app-searchcustomer',
@@ -12,13 +13,30 @@ export class SearchcustomerComponent {
 
   customerSearchList:Customer[] =[];
 
-  constructor(private customerService:Service){}
+  constructor(private customerService:Service ,private router:Router){}
+  data:string = '';
+
+  ngOnInit(){
+
+    this.getAllCustomers();
+  }
+
+  
+ 
+    findCustomer(searchData:any){
+
+        this.router.navigate(['/search/'+searchData.form.value.data])
+
+        console.log(searchData.form.value.data);
+        
+
+    }
 
   getCustomerById(customerId:number){
     
     console.log(customerId)
 
-      this.customerService.getById(customerId).subscribe((cust) => {console.log("customer obtained"+cust)});
+      this.customerService.getCustomerById(customerId).subscribe((cust) => {console.log("customer obtained"+cust)});
   }
 
   getAllCustomers(){
@@ -28,5 +46,18 @@ export class SearchcustomerComponent {
   });
   }
 
+  updateCustomer(data:Customer){
+        
+    this.customerService.updateCustomerDetails(data)
+    .subscribe((customer) => {console.log("updated customer is:"+customer);})
+  }
+  deleteCustomerById(id:number){
+        
+    this.customerService.deleteCustomer(id).subscribe(() => { console.log('Customer deleted successfully')});
 
+    this.getAllCustomers();
+   
+   
+ }
+  
 }

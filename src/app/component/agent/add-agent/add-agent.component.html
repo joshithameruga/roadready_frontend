@@ -4,9 +4,7 @@
 <div class="container">
     <form  #myform="ngForm"  method="post" (ngSubmit)="addAgent(myform.value)">
   
-      <label for="agentId">AGENT ID</label>
-      <input type="text" id="agentId" #agentIdcontrol="ngModel" name="aid" placeholder="Enter agent id"  required ngModel><br>
-      <span  style="color: red;"  *ngIf="agentIdcontrol.touched && agentIdcontrol.invalid">Agent ID is Mandatory</span><br>
+  
   
       <label for="aname">USERNAME</label>
       <input type="text" id="aname" #anamecontrol="ngModel" name="username" placeholder="Enter username" required ngModel><br>

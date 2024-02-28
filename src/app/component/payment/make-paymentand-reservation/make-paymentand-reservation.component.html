@@ -1,1 +1,43 @@
-<p>make-paymentand-reservation works!</p>
+<br>
+<br>
+<div class="container">
+   <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)">  -->
+    
+     <form  #myform="ngForm" (ngSubmit)="makePaymentAndReservation(myform.value)" >
+      <label for="id">CUSTOMER ID</label>
+      <input type="text" id="id" #formcontrol="ngModel" name="customerId" placeholder="enter customer id"  required ngModel><br>
+      <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">CustomerId is Mandatory</span><br>
+  
+      <label for="carid">CAR ID</label>
+      <input type="text" id="carid" #formcontrol="ngModel" name="carId" placeholder="enter car id" required ngModel><br>
+      <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Car id is Mandatory</span><br>
+     
+      <label for="pickup">DATE OF PICKUP</label>
+      <input type="date" id="pickup" name="dateOfPickup" placeholder="yyyy-mm-dd" required
+             [(ngModel)]="dateOfPickup" #pickupInput="ngModel" [min]="minDate"><br>
+      <span style="color: red;" *ngIf="pickupInput.touched && pickupInput.invalid">Pickup Date is Mandatory</span><br>
+      
+      <label for="dropoff">DATE OF DROPOFF</label>
+      <input type="date" id="dropoff" name="dateOfDropOff" placeholder="yyyy-mm-dd" required
+             [(ngModel)]="dateOfDropOff" #dropoffInput="ngModel" [min]="minDate"><br>
+      <span style="color: red;" *ngIf="dropoffInput.touched && dropoffInput.invalid">Dropoff date is Mandatory</span><br>
+      
+      <label for="amount">AMOUT TO BE PAID</label>
+      <input type="text" id="amount" #formcontrol="ngModel"  name="amountPaid" [placeholder]=" 'enter amount '+amount"  required ngModel><br>
+      <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Amount is Mandatory</span><br>
+  
+      <label for="mode">CHOOSE MODE OF PAYMENT</label>
+      <!-- <select name="modeofpayemnt" id="mode" #formcontrol="ngModel" [(ngModel)]="selectedPaymentMode" required > -->
+        <select name="modeOfPayment" id="mode" #formcontrol="ngModel"  required ngModel>
+        
+        <option value="upi">UPI</option>
+        <option value="creditcard">CREDIT CARD</option>
+        <option value="debitcard">DEBIT CARD</option>
+        
+      </select><br>  
+      
+      <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Enter mode of payment</span><br>
+  
+      <button type="submit"   [disabled]="myform.invalid" >PAY</button>
+    </form>
+  </div>

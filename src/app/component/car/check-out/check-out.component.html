@@ -1,1 +1,18 @@
-<p>check-out works!</p>
+<br>
+<br>
+
+<div class="container">
+    <form  #myform="ngForm"  method="post" (ngSubmit)="checkOut(myform.controls['rid'].value, myform.controls['carStatus'].value)">
+  
+      <label for="rid">Reservation ID</label>
+      <input type="text" id="rid" #ridcontrol="ngModel" name="make" placeholder="Enter reservation id"  required ngModel><br>
+      <span  style="color: red;"  *ngIf="ridcontrol.touched && ridcontrol.invalid">Reservation id is Mandatory</span><br>
+  
+      <label for="cstatus">MODEL</label>
+      <input type="text" id="cstatus" #cstatuscontrol="ngModel" name="model" placeholder="Enter car status" required ngModel><br>
+      <span  style="color: red;"  *ngIf="cstatuscontrol.touched && cstatuscontrol.invalid">Car status is Mandatory</span><br>
+     
+     
+      <button type="submit"   [disabled]="myform.invalid" >Submit</button>
+    </form>
+  </div>

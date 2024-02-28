@@ -1,22 +1,35 @@
-<p>search-agent works!</p>
-<div>
-    <form  #myform="ngForm"  (ngSubmit)="getAgentById(myform.value)">
-  
-      <label for="id">AGENT ID</label>
-      <input type="text" id="id" #idcontrol="ngModel" name="agentId" placeholder="Enter agent ID"  required ngModel>
-      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Agent Id is Mandatory</span><br>
-      
-      <button type="submit"   [disabled]="myform.invalid" >Get Agent</button>
-
-    
-</form>  
-
-<div     (ngSubmit)="getAllAgents()">
-  
-    <button type="submit" >Get All Agents</button>
-
-  
-</div>  
-
-
+<div class= add> 
+<button type="button" class="btn btn-success"   routerLink="/addagent">ADD AGENT</button>
 </div>
+
+<div class="search">
+<nav class="navbar navbar-light ">
+    <div class="container-fluid">
+      <form class="d-flex"   #searchInput="ngForm" (ngSubmit)="find(searchInput)">
+        <input class="form-control me-2" type="search" name="data"  ngModel  placeholder="Search By Id" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</div>
+
+<div class="container  col-md-9">
+<table  class="table table-info">
+
+<thead>
+<tr><th>ID</th><th>USERNAME</th><th>PASSWORD</th><th> UPDATE</th><th> DELETE</th></tr>
+</thead>
+
+<tr *ngFor="let agent of  agentSearchList">
+ <td>{{agent.agentId}}</td><td>{{agent.username}}</td>
+ <td>{{agent.password}}</td> 
+ <td><button type="button" class="btn btn-success"   routerLink="/updateagent">UPDATE</button></td> 
+
+ <td><button type="button" class="btn btn-danger"   (click)="deleteAgentById(agent.agentId)">Delete</button></td> 
+</tr>
+
+</table>
+</div>
+
+
+<router-outlet> </router-outlet>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Service } from '../../../service/service';
 
 @Component({
   selector: 'app-modify-reservation',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class ModifyReservationComponent {
 
+  constructor(private resevationService:Service){}
+
+  modifyReservation(){
+    
+  }
 }

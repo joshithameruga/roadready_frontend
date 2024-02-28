@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Agent } from 'src/app/model/agent';
+
 import { Service } from 'src/app/service/service';
 
 @Component({
@@ -8,6 +9,7 @@ import { Service } from 'src/app/service/service';
   styleUrls: ['./add-agent.component.css']
 })
 export class AddAgentComponent {
+
   constructor(private agentService: Service) { }
 
   addAgent(data: Agent) {

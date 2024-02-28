@@ -12,7 +12,7 @@ export class DeleteAgentComponent {
 
   deleteAgentById(id:number){
         
-     this.agentService.delete(id).subscribe(() => { console.log('Agent deleted successfully')});
+     this.agentService.deleteAgentById(id).subscribe(() => { console.log('Agent deleted successfully')});
     
   }
 }

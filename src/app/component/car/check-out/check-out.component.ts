@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Service } from 'src/app/service/service';
 
 @Component({
   selector: 'app-check-out',
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class CheckOutComponent {
 
+  constructor(private checkOutService:Service){}
+
+  checkOut(carStatus:string,reservationId:number): void {
+    if (carStatus && reservationId) {
+        this.checkOutService.checkingOut(carStatus, reservationId)
+            .subscribe((car) => { console.log("updated car status is:" + car); });
+    } else {
+        console.error("Invalid data or data2");
+    }
+ 
+}
 }

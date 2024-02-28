@@ -1,23 +1,41 @@
 <p>search-car works!</p>
 
-<div>
-    <form  #myform="ngForm"  (ngSubmit)="getCarById(myform.value)">
-  
-      <label for="id">CAR ID</label>
-      <input type="text" id="id" #idcontrol="ngModel" name="customerId" placeholder="enter car ID"  required ngModel>
-      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Car Id is Mandatory</span><br>
-      
-      <button type="submit"   [disabled]="myform.invalid" >Get Car</button>
-
-    
-</form>  
-
-<div     (ngSubmit)="getAllCars()">
-  
-    <button type="submit" >Get All Cars</button>
-
-  
-</div>  
-
-
+<div class="add">
+<button type="button" class="btn btn-success"   routerLink="/addcar">ADD CAR</button>
 </div>
+
+
+<div class="search">
+<nav class="navbar navbar-light ">
+    <div class="container-fluid">
+      <form class="d-flex"  #searchInput="ngForm" (ngSubmit)="findCar(searchInput)">
+        <input class="form-control me-2" type="search" name="data"  ngModel  placeholder="Search By Id" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</div>
+
+
+<div class="container  col-md-9">
+<table  class="table table-info">
+
+<thead>
+<tr><th>CAR ID</th><th>MAKE</th><th>MODEL</th><th> LOCATION</th>
+    <th>DAILY RATE</th><th>CAR STATUS</th><th>SPECIFICATION</th><th> PASSENGER CAPACITY</th>
+    <th> UPDATE</th><th> DELETE</th></tr>
+</thead>
+
+<tr *ngFor="let cars of  carSearchList">
+ <td>{{cars.carId}}</td><td>{{cars.make}}</td>
+ <td>{{cars.model}}</td>  <td>{{cars.location}}</td><td>{{cars.dailyRate}}</td>
+ <td>{{cars.carStatus}}</td> <td>{{cars.specification}}</td>
+ <td>{{cars.passengerCapacity}}</td> 
+ <td><button type="button" class="btn btn-success"   routerLink="/updatecar">UPDATE</button></td> 
+
+ <td><button type="button" class="btn btn-danger"   (click)="deleteCarById(cars.carId)">Delete</button></td> 
+</tr>
+
+</table>
+</div>
+<router-outlet> </router-outlet>

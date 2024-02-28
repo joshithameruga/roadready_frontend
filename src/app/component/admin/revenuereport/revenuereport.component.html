@@ -1,23 +1,48 @@
-<p>revenuereport works!</p>
-
-<div>
-    <form  #myform="ngForm"  (ngSubmit)="getReportById(myform.value)">
-  
-      <label for="id">CUSTOMER ID</label>
-      <input type="text" id="id" #idcontrol="ngModel" name="customerId" placeholder="Enter customer ID"  required ngModel>
-      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Customer Id is Mandatory</span><br>
+<br>
+<br>
+<div class="betweendates">
+    <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)"> -->
+    <form  #myform="ngForm" >
       
-      <button type="submit"   [disabled]="myform.invalid" >Get Report</button>
-
-    
-</form>  
-
-<div     (ngSubmit)="getAllRevenueReport()">
+      <label for="id">START DATE</label>
+      <input type="date" id="id" #formcontrol="ngModel" name="startdate" placeholder="yyyy-mm-dd" required ngModel><br>
+      <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Start Date is Mandatory</span><br>
+     
+      <label for="id">END DATE</label>
+      <input type="date" id="id" #formcontrol="ngModel" name="enddate" placeholder="yyyy-mm-dd" required ngModel><br>
+      <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">End date is Mandatory</span><br>
   
-    <button type="submit" >Get All Reports</button>
+     
+      <button type="submit"   [disabled]="myform.invalid" >GET REVENUE REPORT</button>
+    </form>
+  </div>
+
+
+<br>
+<br>
+<div class="bycustomer">
+  
+  <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)"> -->
+  <form  #myform="ngForm">
+    <label for="id">CUSTOMERID</label>
+    <input type="text" id="id" #formcontrol="ngModel" name="customerid" placeholder="enter customer id"  required ngModel><br>
+    <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Customer id is Mandatory</span><br>
+
+   
+  <button type="submit"   [disabled]="myform.invalid" >GET REVENUE REPORT</button>
+
+  </form>
+
+</div>
+
+
+<br>
+<br>
+
+<!-- <div    class="getall" (ngSubmit)="getAllCustomers()">   -->
+<div class="getall">
+
+    <button type="submit" >GET TOTAL REVENUE REPORT</button>
 
   
 </div>  
-
-
-</div>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddcustomerComponent } from './component/customer/addcustomer/addcustomer.component';
 import { DeletecustomerComponent } from './component/customer/deletecustomer/deletecustomer.component';
@@ -32,11 +32,18 @@ import { SearchAgentComponent } from './component/agent/search-agent/search-agen
 import { SearchfeedbackComponent } from './component/feedback/searchfeedback/searchfeedback.component';
 import { RevenuereportComponent } from './component/admin/revenuereport/revenuereport.component';
 import { AddadminComponent } from './component/admin/addadmin/addadmin.component';
+import { CarMaintenanceReportComponent } from './component/car/car-maintenance-report/car-maintenance-report.component';
 import { CheckInComponent } from './component/car/check-in/check-in.component';
 import { CheckOutComponent } from './component/car/check-out/check-out.component';
 import { UpdateCarAvailabilityComponent } from './component/car/update-car-availability/update-car-availability.component';
 import { GetCustomerIdentityComponent } from './component/customerIdentity/get-customer-identity/get-customer-identity.component';
-import { CarMaintenanceReportComponent } from './component/car/car-maintenance-report/car-maintenance-report.component';
+
+import { FilterComponent } from './component/filter/filter.component';
+import { SearchByLocationComponent } from './component/car/search-by-location/search-by-location.component';
+import { SearchBypassengerCapacityComponent } from './component/car/search-bypassenger-capacity/search-bypassenger-capacity.component';
+import { SearchByMakeComponent } from './component/car/search-by-make/search-by-make.component';
+import { SearchBySpecificationComponent } from './component/car/search-by-specification/search-by-specification.component';
+import { NavBarComponent } from './component/main page/nav-bar/nav-bar.component';
 
 const routes: Routes = [
   
@@ -52,6 +59,7 @@ const routes: Routes = [
   {path:'customerdashboard' , component:CustomerDashboardComponent},
   {path:'admindashboard',component:AdminDashboardComponent},
   {path:'agentdashboard',component:AgentDashboardComponent},
+  {path:'navbar',component:NavBarComponent},
 
 
   //customer dashboard
@@ -65,6 +73,7 @@ const routes: Routes = [
   {path:'modifyreservation',component:ModifyReservationComponent},
   {path:'cancelreservation',component:CancelReservationComponent},
   {path:'viewreservationhistory',component:SearchReservationsComponent},
+  {path:'filterCars',component:FilterComponent},
   
   
   //admin dashboard 
@@ -73,13 +82,13 @@ const routes: Routes = [
   //{path:'deletecustomer/:customerId',component:DeletecustomerComponent},
   {path:'deletecustomer',component:DeletecustomerComponent},
   {path:'searchallcustomers',component:SearchcustomerComponent},
- // {path:'searchcustomerbyid/:customerId',component:SearchcustomerComponent},
- {path:'searchcustomer',component:SearchcustomerComponent},
+  {path:'searchcustomerbyid/:customerId',component:SearchcustomerComponent},
+ //{path:'searchcustomer',component:SearchcustomerComponent},
   {path:'updatecustomer',component:UpdatecustomerComponent},
 
   {path:'addcar',component:AddCarComponent},
   {path:'deletecar',component:DeleteCarComponent},
-  {path:'searchcar',component:SearchCarComponent},
+  {path:'searchcar/:carId',component:SearchCarComponent},
   {path:'searchallcars',component:SearchCarComponent},
   {path:'updatecar',component:UpdateCarComponent},
   {path:'discountoncarbymake',component:UpdateCarComponent},
@@ -106,12 +115,17 @@ const routes: Routes = [
 
   //common for both customer and admin
   {path:'getavailablecars',component:SearchCarComponent},
-  {path:'carbylocation',component:SearchCarComponent},
-  {path:'carbypassengercapacity',component:SearchCarComponent},
-  {path:'carbymake',component:SearchCarComponent},
-  {path:'carbyspecification',component:SearchCarComponent},
+ // {path:'carbylocation',component:SearchByLocationComponent},
+  {path:'carbylocation/:location',component:SearchCarComponent},
+  //{path:'carbypassengercapacity/:passengerCapacity',component:SearchBypassengerCapacityComponent},
+  {path:'carbypassengercapacity/:passengerCapacity',component:SearchCarComponent},
+  //{path:'carbymake/:make',component:SearchByMakeComponent},
+  {path:'carbymake/:make',component:SearchCarComponent},
+  //{path:'carbyspecification/:specification',component:SearchBySpecificationComponent},
+  {path:'carbyspecification/:specification',component:SearchCarComponent},
   {path:'searchcarsbylocationmakemodel',component:SearchCarComponent},
   
+
 // agent dashboard
  //{path:'checkin/:reservationId',component:CheckinComponent},
  {path:'checkin',component:CheckInComponent},

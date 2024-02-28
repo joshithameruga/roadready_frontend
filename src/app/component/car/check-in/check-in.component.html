@@ -1,1 +1,16 @@
-<p>check-in works!</p>
+<br>
+<br>
+
+
+<div>
+    <form  #myform="ngForm"  (ngSubmit)="checkIn(myform.value)">
+  
+      <label for="id">RESERVATION ID</label>
+      <input type="text" id="id" #idcontrol="ngModel" name="reservationId" placeholder="enter reservation ID"  required ngModel>
+      <span  style="color: red;"  *ngIf="idcontrol.touched && idcontrol.invalid">Reservation Id is Mandatory</span><br>
+      
+      <button type="submit"   [disabled]="myform.invalid" >Check In</button>
+
+    
+</form>
+</div>

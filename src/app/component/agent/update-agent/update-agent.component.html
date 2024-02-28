@@ -1,1 +1,21 @@
 <p>update-agent works!</p>
+
+<div class="container">
+    <form  #myform="ngForm"  method="put" (ngSubmit)="updateAgent(myform.value)">
+  
+      <label for="agentId">AGENT ID</label>
+      <input type="text" id="agentId" #agentIdcontrol="ngModel" name="aid" placeholder="Enter agent id"  required ngModel><br>
+      <span  style="color: red;"  *ngIf="agentIdcontrol.touched && agentIdcontrol.invalid">Agent ID is Mandatory</span><br>
+  
+      <label for="aname">USERNAME</label>
+      <input type="text" id="aname" #anamecontrol="ngModel" name="username" placeholder="Enter username" required ngModel><br>
+      <span  style="color: red;"  *ngIf="anamecontrol.touched && anamecontrol.invalid">Username is Mandatory</span><br>
+     
+      <label for="apass">PASSWORD</label>
+      <input type="password" id="apass" #apasscontrol="ngModel" name="password" placeholder="Enter password" required minlength="10" ngModel><br>
+      <span  style="color: red;"  *ngIf="apasscontrol.touched && apasscontrol.invalid">Password is Mandatory and should be of 10 characters</span><br>
+  
+      
+      <button type="submit"   [disabled]="myform.invalid" >Submit</button>
+    </form>
+  </div>

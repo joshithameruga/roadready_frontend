@@ -1,1 +1,60 @@
-<p>upload-customer-identity works!</p>
+<br>
+<br>
+
+
+
+<form #uploadForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="customerId">Customer ID:</label>
+    <input type="text" id="customerId" name="customerId" class="form-control" [(ngModel)]="customerId" required>
+  </div>
+  
+  <div class="form-group">
+    <label for="pdfFile">Upload PDF File:</label>
+    <input type="file" id="pdfFile" name="pdfFile" class="form-control-file" (change)="onFileSelected($event)"  enctype="multipart/form-data" required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary" [disabled]="!uploadForm.valid">Submit</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container"> -->
+ <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)">  -->
+    <!-- <form  #myform="ngForm" (ngSubmit)="uploadCustomerIdentity(myform.value,myInput.files)" enctype="multipart/form-data">
+
+    <label for="id">CUSTOMER ID</label>
+    <input type="text" id="id" #formcontrol="ngModel" name="customerId" placeholder="enter customer id"  required ngModel><br>
+    <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Customer Id is Mandatory</span><br>
+
+    <label for="id">YOUR LICENCE</label>
+    <input type="file" id="id"   #myInput #formcontrol="ngModel" name="file" placeholder="upload driver's licence" required ngModel><br>
+    <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Licence is Mandatory</span><br>
+   
+
+    <button type="submit"   [disabled]="myform.invalid" >UPLOAD IDENTITY</button>
+  </form>
+</div> -->
+
+
+
+
+

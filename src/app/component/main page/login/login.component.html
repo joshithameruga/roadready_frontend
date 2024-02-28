@@ -8,9 +8,9 @@
   
   
     <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)"> -->
-    <form  #myform="ngForm">
+    <form  #myform="ngForm"  (ngSubmit)="readFormData(myform)">
       <label for="username">USERNAME</label>
-      <input type="text" id="username" #usernamecontrol="ngModel" name="userName" placeholder="enter your user name"  required ngModel><br>
+      <input type="text" id="username" #usernamecontrol="ngModel" name="username" placeholder="enter your user name"  required ngModel><br>
       <span  style="color: red;"  *ngIf="usernamecontrol.touched && usernamecontrol.invalid">User Name is Mandatory</span><br>
 
      
@@ -21,15 +21,22 @@
     
     <button type="submit"   [disabled]="myform.invalid" >Login</button>
 
+    <p  (click)="backtoRegistration()">New User?Please Signup Here</p>
+
     </form>
  
 </div>
 
-<a routerLink="/customerdashboard">customerdashboard</a>
+<h1>{{response}}</h1>
+
+
+
+
+<!-- <a routerLink="/customerdashboard">customerdashboard</a>
 
 <a routerLink="/admindashboard">admindashboard</a>
 
-<a routerLink="/agentdashboard">agentdashboard</a> <br>
+<a routerLink="/agentdashboard">agentdashboard</a> <br> -->
 
 <router-outlet></router-outlet>
 

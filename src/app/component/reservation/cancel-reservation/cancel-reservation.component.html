@@ -1,1 +1,18 @@
-<p>cancel-reservation works!</p>
+<br>
+<br>
+<div class="container">
+
+  
+  
+  <!-- <form  #myform="ngForm"  method="post" (ngSubmit)="insertCustomer(myform.value)"> -->
+  <form  #myform="ngForm">
+    <label for="id">RESERVATION ID</label>
+    <input type="text" id="id" #formcontrol="ngModel" name="reservationid" placeholder="enter reservation id"  required ngModel><br>
+    <span  style="color: red;"  *ngIf="formcontrol.touched && formcontrol.invalid">Reservation id is Mandatory</span><br>
+
+   
+  <button type="submit"   [disabled]="myform.invalid" >Delete</button>
+
+  </form>
+
+</div>

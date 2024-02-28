@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Car } from 'src/app/model/car';
-import { Service } from 'src/app/service/service';
+import { Car } from '../../../model/car';
+import { Service } from '../../../service/service';
 
 @Component({
   selector: 'app-add-car',
